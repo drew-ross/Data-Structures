@@ -14,7 +14,7 @@ Stretch Goals:
 
 ## Completion Requirements
  - [X] Module 1: Implement the Stack and Queue classes using built-in Python lists and the Node and LinkedList classes you created during the Module 1 Guided Project.
-- [ ] Module 2: Implement the Doubly Linked List class
+- [X] Module 2: Implement the Doubly Linked List class
 - [ ] Module 3: Implement the Binary Search Tree class
 - [ ] Module 4: Implement traversal methods on Binary Search Trees
  
