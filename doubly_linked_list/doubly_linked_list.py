@@ -27,7 +27,16 @@ class DoublyLinkedList:
     the old head node's previous pointer accordingly.
     """
     def add_to_head(self, value):
-        pass
+        if self.head:
+            old_head = self.head
+            self.head = ListNode(value)
+            old_head.prev = self.head
+            self.head.prev = None
+            self.head.next = old_head
+        else:
+            self.head = ListNode(value)
+            self.tail = self.head
+        self.length += 1
         
     """
     Removes the List's current head node, making the
@@ -35,7 +44,19 @@ class DoublyLinkedList:
     Returns the value of the removed Node.
     """
     def remove_from_head(self):
-        pass
+        if self.head:
+            old_head = self.head
+            self.head = self.head.next
+            #If None, the old head was also the tail, remove tail
+            if self.head:
+                self.head.prev = None
+            else:
+                self.tail = None
+            self.length -= 1
+            return old_head.value
+        else:
+            return None
+            
             
     """
     Wraps the given value in a ListNode and inserts it 
@@ -43,7 +64,15 @@ class DoublyLinkedList:
     the old tail node's next pointer accordingly.
     """
     def add_to_tail(self, value):
-        pass
+        if not self.tail:
+            self.tail = ListNode(value)
+            self.head = self.tail
+        else:
+            old_tail = self.tail
+            self.tail = ListNode(value)
+            self.tail.prev = old_tail
+            old_tail.next = self.tail
+        self.length += 1
             
     """
     Removes the List's current tail node, making the 
@@ -51,7 +80,18 @@ class DoublyLinkedList:
     Returns the value of the removed Node.
     """
     def remove_from_tail(self):
-        pass
+        if self.tail:
+            old_tail = self.tail
+            self.tail = self.tail.prev
+            #If None, the old tail was also the head, remove head
+            if self.tail:
+                self.tail.next = None
+            else:
+                self.head = None
+            self.length -= 1
+            return old_tail.value
+        else:
+            return None
             
     """
     Removes the input node from its current spot in the 
