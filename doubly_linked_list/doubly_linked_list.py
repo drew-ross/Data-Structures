@@ -141,7 +141,7 @@ class DoublyLinkedList:
         if node is self.head:
             self.head = node.next
         if node is self.tail:
-                self.tail = node.prev
+            self.tail = node.prev
         self.length -= 1
 
     """
