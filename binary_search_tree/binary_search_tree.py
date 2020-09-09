@@ -90,7 +90,15 @@ class BSTNode:
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self):
-        pass
+        s = []
+        s.append(self)
+        while len(s) > 0:
+            node = s.pop()
+            if node.right:
+                s.append(node.right)
+            if node.left:
+                s.append(node.left)
+            print(node.value)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
@@ -116,10 +124,12 @@ bst.insert(3)
 bst.insert(4)
 bst.insert(2)
 
+print('Recursive in order')
 bst.in_order_print()
-print('next')
+print('BFT')
 bst.bft_print()
-# bst.dft_print()
+print('DFT')
+bst.dft_print()
 
 # print("elegant methods")
 # print("pre order")
@@ -127,4 +137,4 @@ bst.bft_print()
 # print("in order")
 # bst.in_order_dft()
 # print("post order")
-# bst.post_order_dft()  
+# bst.post_order_dft()
